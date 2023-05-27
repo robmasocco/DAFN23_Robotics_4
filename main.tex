@@ -1,0 +1,71 @@
+% DAFN - ROS 2 - Lecture 3: Node Configuration
+% Roberto Masocco <roberto.masocco@uniroma2.it>
+% May 1, 2022
+
+\documentclass{beamer}
+
+% Slides layout
+\usepackage[
+    title={Robot Operating System 2},
+    subtitle={Lecture 3: Node Configuration},
+    event={DAFN},
+    author={Roberto Masocco},
+    longauthor={Roberto Masocco},
+    email={roberto.masocco@uniroma2.it},
+    institute={Tor Vergata},
+    longinstitute={University of Rome "Tor Vergata"},
+    department={Department of Civil Engineering and Computer Science Engineering},
+    researchgroup={Intelligent Systems Lab},
+    date={May 4, 2022}
+]{utvengbeamer}
+
+% Code listings settings
+\usepackage[nomath]{lmodern}
+\definecolor{codegreen}{rgb}{0 0.5 0}
+\definecolor{codered}{rgb}{1 0 0}
+\definecolor{codeocher}{rgb}{0.8 0.47 0.13}
+\usepackage{listings}
+\lstdefinestyle{beamer}{
+    basicstyle=\ttfamily\small,
+    commentstyle=\color{codegreen},
+    breakatwhitespace=false,
+    captionpos=b,
+    frame=lines,
+    keepspaces=true,
+    keywordstyle=\color{codered}\bfseries,
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\footnotesize,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stringstyle=\color{codeocher},
+    tabsize=2
+}
+\lstset{style=beamer}
+\lstdefinelanguage{ros2msg}{
+  alsoletter={[, ], _, /},
+  morecomment=[l][\color{codegreen}]{\#},
+  morekeywords={int64, uint32, string, uint8, uint8[], int32, int32[], std_msgs/Header}
+}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+% --- Title page ---
+\frame{\titlepage}
+
+% --- Table of contents ---
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents
+\end{frame}
+
+% --- Section 1 ---
+\input{sections/1_nodeParameters}
+
+% --- Section 2 ---
+\input{sections/2_launchFiles}
+
+\end{document}
