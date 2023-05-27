@@ -21,10 +21,10 @@
 \RequirePackage{hyperref}
 \RequirePackage[export]{adjustbox}
 \RequirePackage{ragged2e}
-\RequirePackage{microtype}
 \RequirePackage{siunitx} % See its docs for usage instructions!
 \RequirePackage{svg}
 \RequirePackage{kvoptions}
+\RequirePackage{microtype}
 
 % ------------------ %
 %  DOCUMENT OPTIONS  %
@@ -133,14 +133,15 @@
 \author[\UTVENGB@author]{\texorpdfstring{\UTVENGB@longauthor\newline\href{mailto:\UTVENGB@email}{\url{\UTVENGB@email}}}{\UTVENGB@longauthor}}
 \institute[\UTVENGB@institute]{\UTVENGB@longinstitute\newline\UTVENGB@department\newline\UTVENGB@researchgroup}
 \date{\UTVENGB@date}
-\titlegraphic{\includegraphics[height=1.75cm]{figs/logo_utv_eng_full_horz.png}}
-\AtBeginSection[]
+\titlegraphic{\includegraphics[height=1.74cm]{figs/logo_utv_eng_full_horz.png}}
+\AtBeginSection[] % Comment this if you prefer the TOC to be shown only once
 {
     \begin{frame}
     \frametitle{Roadmap}
     \tableofcontents[currentsection]
     \end{frame}
 }
+\setbeamertemplate{navigation symbols}{} % Uncomment this to remove all navigation controls
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{section in toc}[square]
 \setbeamertemplate{section in toc shaded}[square]
@@ -174,3 +175,57 @@
 \tikzstyle{input} = [coordinate]
 \tikzstyle{output} = [coordinate]
 \tikzstyle{pinstyle} = [pin edge={to-, thin, black}]
+
+% -------- %
+%  COLORS  %
+% -------- %
+\definecolor {white}{rgb}{1.0,1.0,1.0}
+\definecolor {black}{rgb}{0.0,0.0,0.0}
+\definecolor {darkgray}{rgb}{0.3,0.3,0.3}
+\definecolor {gray}{rgb}{0.5,0.5,0.5}
+\definecolor {lightgray}{rgb}{0.8,0.8,0.8}
+\definecolor {darkred}{rgb}{0.8,0.0,0.0}
+\definecolor {red} {rgb}{1.0,0.0,0.0}
+\definecolor {darkgreen}{rgb}{0.0,0.6,0.0}
+\definecolor {green}{rgb}{0.0,1.0,0.0}
+\definecolor {darkblue}{rgb}{0.0,0.0,0.8}
+\definecolor {blue}{rgb}{0.0,0.0,1.0}
+\definecolor {darkyellow}{rgb}{0.8,0.8,0.6}
+\definecolor {yellow}{rgb}{1.0,1.0,0.0}
+\definecolor {darkcyan}{rgb}{0.6,0.8,0.8}
+\definecolor {cyan}{rgb}{0.0,1.0,1.0}
+\definecolor {darkmagenta}{rgb}{0.8,0.6,0.8}
+\definecolor {magenta}{rgb}{1.0,0.0,1.0}
+
+% ------------------- %
+%  MATH ENVIRONMENTS  %
+% ------------------- %
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{ex}{Example}
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conjec}[thm]{Conjecture}
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ass}{Assumption}[section]
+\newtheorem{assumption}{Assumption}
+\newtheorem{algo}{Algorithm}
+\newtheorem{proposition}{Proposition}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\norminf}[1]{\left\Vert#1\right\Vert_{\infty}}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\dz}{\textnormal{dz}}
+\newcommand{\sat}{\textnormal{sat}}
+\newcommand{\sign}{\textnormal{sign}}
+\newcommand{\diag}{\textnormal{diag}}
+\newcommand{\blockdiag}{\textnormal{blockdiag}}
+\newcommand{\rank}{\textnormal{rank}}
+\newcommand{\fracpar}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\diff}[2]{\frac{\partial #1}{\partial #2}}
