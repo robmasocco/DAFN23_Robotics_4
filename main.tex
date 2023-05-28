@@ -1,22 +1,22 @@
-% DAFN - ROS 2 - Lecture 3: Node Configuration
+% DAFN23 - Robotics - Lecture 4
 % Roberto Masocco <roberto.masocco@uniroma2.it>
-% May 1, 2022
+% May 31, 2023
 
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 % Slides layout
 \usepackage[
-    title={Robot Operating System 2},
-    subtitle={Lecture 3: Node Configuration},
+    title={ROS 2},
+    subtitle={Node configuration},
     event={DAFN},
     author={Roberto Masocco},
     longauthor={Roberto Masocco},
     email={roberto.masocco@uniroma2.it},
     institute={Tor Vergata},
-    longinstitute={University of Rome "Tor Vergata"},
+    longinstitute={University of Rome Tor Vergata},
     department={Department of Civil Engineering and Computer Science Engineering},
-    researchgroup={Intelligent Systems Lab},
-    date={May 4, 2022}
+    researchgroup={},
+    date={May 31, 2023}
 ]{utvengbeamer}
 
 % Code listings settings
@@ -56,6 +56,9 @@
 % --- Title page ---
 \frame{\titlepage}
 
+% --- Recap ---
+\input{sections/recap}
+
 % --- Table of contents ---
 \begin{frame}
 \frametitle{Roadmap}
@@ -63,9 +66,12 @@
 \end{frame}
 
 % --- Section 1 ---
-\input{sections/1_nodeParameters}
+\input{sections/namespaces}
 
 % --- Section 2 ---
-\input{sections/2_launchFiles}
+\input{sections/parameters}
+
+% --- Section 3 ---
+\input{sections/launch}
 
 \end{document}
