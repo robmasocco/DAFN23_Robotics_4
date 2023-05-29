@@ -48,6 +48,19 @@ def generate_launch_description():
 	\end{columns}
 \end{frame}
 
+% --- Launch System CLI commands ---
+\begin{frame}{Launch System CLI commands}
+  The main command to \textbg{execute the \texttt{LaunchDescription}} specified in a launch file is
+  \newline\newline
+  \texttt{ros2 launch PACKAGE\_NAME LAUNCH\_FILE}
+  \newline\newline
+  This will start a \textbg{Python interpreter} in your current shell, that will \textbg{parse} the launch file and \textbg{execute} the \texttt{LaunchDescription}. You will \textbg{interface with the underlying processes} through this interpreter instance. You can also specify \textbg{launch arguments} that you will be able to access from within the launch file:
+  \newline\newline
+  \texttt{ros2 launch PACKAGE\_NAME LAUNCH\_FILE ARG1:=VALUE1 ARG2:=VALUE2 ...}
+  \newline\newline
+  Have a look at the options of this command!
+\end{frame}
+
 % --- Coding launch files ---
 \begin{frame}{Coding launch files}{Hints and best practices}
 	\begin{itemize}
