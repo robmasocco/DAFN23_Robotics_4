@@ -69,9 +69,9 @@
 \begin{frame}{Parameters CLI commands}
   When starting a node with \texttt{ros2 run}, it is possible to specify parameters as \textbg{command-line arguments}:
   \newline\newline
-  \texttt{ros2 run PACKAGE\_NAME EXECUTABLE\_NAME -{}-ros2-args -p param\_name:=param\_value ...}
+  \texttt{ros2 run PACKAGE\_NAME EXECUTABLE\_NAME -{}-ros2-args -p param\_name:=param\_value}
   \newline\newline
-  It is also possible to specify a \textbg{configuration file}:
+  Multiple parameter values can be specified by \textbg{repeating} the \texttt{-p} option. It is also possible to specify a \textbg{configuration file}:
   \newline\newline
   \texttt{ros2 run PACKAGE\_NAME EXECUTABLE\_NAME -{}-ros2-args -{}-params-file PARAMETER\_FILE}
 \end{frame}
@@ -87,21 +87,22 @@
     \item \texttt{\textasciitilde/get\_parameter\_types}
     \item \texttt{\textasciitilde/set\_parameters\_atomically}
   \end{itemize}
-  Try to inspect them with \texttt{ros2 service type}! They all take \textbg{groups of parameters} on which to operate, and can be called either from a \textbg{CLI tool} or from a \textbg{client node}: that is the way to go if you want to \textbg{automate parameter updates}.
+  Try to inspect them with \texttt{ros2 service type}, or call them from the command line! They all take \textbg{groups of parameters} on which to operate, and can be called either from a \textbg{CLI tool} or from a \textbg{client node}: that is the way to go if you want to \textbg{automate parameter updates}.
 \end{frame}
 
 % --- Coding with parameters ---
 \begin{frame}{Coding with parameters}{Hints and best practices}
 	\begin{itemize}
 		\item Parameters are referred to by their \textbg{name}.
-		\item Before being used, a parameter must be \textbg{declared} to the middleware: this is usually done in the constructor of a node specifying their \textbg{name} and \textbg{default value}.
-		\item Parameter values can be retrieved \textbg{atomically} by calling an API, but accessing the middleware's internals to do this might be \textbg{slow}: define \textbg{class member variables} that track the value of each parameter by being updated each time the parameter is.
+		\item Before being used, a parameter must be \textbg{declared} to the middleware: this is usually done in the constructor of a node specifying their \textbg{name} and \textbg{default value} using the \texttt{declare\_parameter} API.
+		\item Parameter values can be retrieved \textbg{atomically} by calling the \texttt{get\_parameter} API, which returns an \texttt{rclcpp::Parameter} object that must be \textbg{casted} to the appropriate type using the \texttt{as\_*} methods (\texttt{as\_int()}, \texttt{as\_bool()}, ecc.).
+    \item Accessing the middleware's internals to retrieve parameters might be \textbg{slow}: define \textbg{class member variables} that track the value of each parameter by being updated each time the parameter is.
 	\end{itemize}
 \end{frame}
 \begin{frame}{Coding with parameters}{Suggested TODO list}
   \begin{enumerate}
     \item Define \textbg{class member variables} to track the value of each parameter.
-    \item Define a \textbg{callback} to be called when a parameter is updated.
+    \item Define a \textbg{callback} to be called when a parameter is updated (there's an API for this).
     \item \textbg{Declare} the parameters in the \textbg{constructor} of the node; do this \textbg{first}, so that the parameters are available as soon as the node is started.
     \item \textbg{Register} the callback to the middleware.
     \item \textbg{Use} the parameter values in the implementation.
