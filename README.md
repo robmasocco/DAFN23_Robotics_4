@@ -1,6 +1,6 @@
 # DAFN23_Robotics_4
 
-DAFN 2023 - Robotics 3: ROS 2 - Node configuration
+DAFN 2023 - Robotics 4: ROS 2 - Node configuration
 
 LaTeX source code and build files.
 
